@@ -19,6 +19,7 @@ public class Spin90Clockwise extends Command {
     	requires(Robot.driveTrain);
     	requires(Robot.sensorData);
     	gyro = Robot.sensorData.gyro;
+    	setTimeout(1.0);
     }
 
     // Called just before this Command runs the first time
@@ -30,7 +31,7 @@ public class Spin90Clockwise extends Command {
     protected void execute() {
     	double gyroAngle = gyro.getAngle();
     	SmartDashboard.putNumber("Gyroscope Angle", gyroAngle);
-    	if(gyroAngle < 90){
+    	if(gyroAngle < 50){
     		Robot.driveTrain.setLeft_Back(-.5);
     		Robot.driveTrain.setLeft(-.5);
     		Robot.driveTrain.setRight(.5);
@@ -42,7 +43,7 @@ public class Spin90Clockwise extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     	//return false;
     }
 

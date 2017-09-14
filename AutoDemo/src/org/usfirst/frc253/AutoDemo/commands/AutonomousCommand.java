@@ -40,19 +40,23 @@ public class AutonomousCommand extends CommandGroup {
     	//RotateRight(): robot rotates to the right; only robot orientation changes
     	//Spin120Clockwise(): robot spins 120 degrees clockwise; only robot orientation changes
     	//Spin120Counterwise(): robot spins 120 degrees counterclockwise; only robot orientation changes
+    	//Spin180(): robot spins 180 degrees; only robot orientation changes
     	//Spin90Clockwise(): robot spins 90 degrees clockwise; only robot orientation changes
     	//Spin90Counterwise(): robot spins 90 degrees counterclockwise; only robot orientation changes
     	//TurnLeft(): robot turns to the left; both robot orientation and position change
     	//TurnRight(): robot turns to the right; both robot orientation and position change
+    	//Wait(): robot does nothing
     	
     	//Timed commands:
-    	//DriveForward(), DriveBackward(), RotateLeft(), RotateRight(), TurnLeft(), TurnRight()
-    	//These commands must be provided with an amount of time to run (in seconds).
-    	//e.g. addSequential(new DriveForward(1.0));
-    	//This command drives the robot forward for 1.0 seconds.
+    	//DriveForward(), DriveBackward(), RotateLeft(), RotateRight(), TurnLeft(), TurnRight(), Wait()
     	
     	
     	
+    	addSequential(new DriveForward());
+    	addSequential(new Spin90Counterwise());
+    	addSequential(new DriveForward());
+    	addSequential(new Spin90Counterwise());
+    	addSequential(new DriveForward());
  
     } 
 }
